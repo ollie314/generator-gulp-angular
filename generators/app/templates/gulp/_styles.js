@@ -23,14 +23,16 @@ gulp.task('styles', function() {
 var buildStyles = function() {
 <% if (props.cssPreprocessor.key === 'less') { -%>
   var lessOptions = {
-    options: [
+    paths: [
       'bower_components',
       path.join(conf.paths.src, '/app')
-    ]
+    ],
+    relativeUrls : true
   };
 <% } if (props.cssPreprocessor.extension === 'scss') { -%>
   var sassOptions = {
-    style: 'expanded'
+    outputStyle: 'expanded',
+    precision: 10
   };
 <% } -%>
 
